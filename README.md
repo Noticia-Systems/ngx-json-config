@@ -1,27 +1,66 @@
-# NgxJsonConfig
+ngx-json-config allows for loading of json config files on Angular startup for dynamic configurations that are not included during compile time (like environment vars).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+## Installation
 
-## Development server
+``npm install @noticia/ngx-json-config``
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
 
-## Code scaffolding
+Define one or more config interfaces:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```typescript
+export interface AppConfig {
+    exampleApiUrl: string;
+    exampleApiKey: string;
+    
+    ...
+}
+```
 
-## Build
+Create ``InjectionToken`` (e.g. in the ``AppModule`` or the interface file) for the defined config interfaces:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```typescript
+export const APP_CONFIG = new InjectionToken<AppConfig>('AppConfig');
+```
 
-## Running unit tests
+Configure the module for the config usage:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+@NgModule({
+  providers: [
+    // include the JsonConfigService 
+    JsonConfigService,
+    
+    // load the configs in the APP_INITIALIZER
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (jsonConfigService: JsonConfigService) => () => jsonConfigService.load$([
+        {
+          identifier: APP_CONFIG,
+          url: '/assets/app-config.json'
+        }
+      ]),
+      deps: [JsonConfigService],
+      multi: true
+    },
+    
+    // create provider to inject the config into classes.
+    {
+      provide: APP_CONFIG,
+      useFactory: (jsonConfigService: JsonConfigService) => jsonConfigService.get(APP_CONFIG),
+      deps: [JsonConfigService]
+    }
+  ]
+  ...
+})
+export class AppModule {
+}
+```
 
-## Running end-to-end tests
+Inject the configs into classes:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```typescript
+export class TestService {
+  constructor(@Inject(APP_CONFIG) public appConfig: AppConfig) {}
+}
+```
