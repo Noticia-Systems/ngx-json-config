@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml)
+
 ngx-json-config allows for loading of json config files on Angular startup for dynamic configurations that are not included during compile time (like environment vars).
 
 ## Installation
