@@ -1,4 +1,4 @@
-[![Node.js CI](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Package](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/npm-publish.yml) [![Node.js CI](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/Noticia-Systems/ngx-json-config/actions/workflows/node.js.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ngx-json-config allows for loading of json config files on Angular startup for dynamic configurations that are not included during compile time (like environment vars).
 
