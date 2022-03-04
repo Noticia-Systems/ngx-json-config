@@ -16,7 +16,9 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npm test
+      - run: CI=true npm test -- --watch=false --browsers=ChromeHeadless
+        env:
+          CI: true
 
   publish-npm:
     needs: build
