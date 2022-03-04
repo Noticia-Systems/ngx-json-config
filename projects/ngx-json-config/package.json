@@ -1,6 +1,7 @@
 {
-  "name": "ngx-json-config",
-  "version": "0.0.1",
+  "name": "@noticiasystems/ngx-json-config",
+  "version": "1.0.0",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"

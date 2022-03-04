@@ -45,7 +45,7 @@ export class JsonConfigService {
 
     for (let config of configs) {
       observables.push(this.httpClient.get(config.url).pipe(
-        tap( cfg => this.configs.set(config.identifier, cfg))
+        tap(cfg => this.configs.set(config.identifier, cfg))
       ));
     }
 
@@ -56,8 +56,8 @@ export class JsonConfigService {
    * Gets a preloaded config object.
    * @param identifier {@link InjectionToken} used to identify the requested config.
    */
-  public get<T>(identifier: InjectionToken<any>): T {
-    return this.configs.get(identifier) as T;
+  public get<T>(identifier: InjectionToken<any>): T | undefined {
+    return this.configs.get(identifier) as T | undefined;
   }
 
   // #endregion
