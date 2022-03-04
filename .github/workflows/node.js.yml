@@ -12,9 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: projects/ngx-json-config
-    
+
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
@@ -27,10 +25,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-      working-directory: ${{env.working-directory}}
-    - run: CI=true npm test -- --watch=false --browsers=ChromeHeadless
-      working-directory: ${{env.working-directory}}
+    - run: npm ci ngx-json-config
+    - run: npm run build ngx-json-config --if-present
+    - run: CI=true npm test ngx-json-config -- --watch=false --browsers=ChromeHeadless
       env:
         CI: true
