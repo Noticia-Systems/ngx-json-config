@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
   "projects": {
     "ngx-json-config": {
       "projectType": "library",
@@ -31,9 +30,15 @@
             "tsConfig": "projects/ngx-json-config/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-json-config/karma.conf.js"
           }
+        },
+        "deploy": {
+          "builder": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public",
+            "buildTarget": "production"
+          }
         }
       }
     }
-  },
-  "defaultProject": "ngx-json-config"
+  }
 }
