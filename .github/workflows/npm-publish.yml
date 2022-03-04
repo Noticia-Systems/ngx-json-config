@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm ci
-      - run: CI=true npm test -- --watch=false --browsers=ChromeHeadless
+      - run: npm ci ngx-json-config
+      - run: CI=true npm test ngx-json-config -- --watch=false --browsers=ChromeHeadless
         env:
           CI: true
 
@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish --access public
+      - run: npm ci ngx-json-config
+      - run: npm publish ngx-json-config --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
