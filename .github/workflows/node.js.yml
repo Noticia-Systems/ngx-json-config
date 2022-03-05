@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci ngx-json-config
+    - run: npm ci
     - run: npm run build ngx-json-config --if-present
     - run: CI=true npm test ngx-json-config -- --watch=false --browsers=ChromeHeadless
       env:

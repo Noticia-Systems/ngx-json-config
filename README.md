@@ -19,7 +19,7 @@ export interface AppConfig {
 }
 ```
 
-Create ``InjectionToken`` (e.g. in the ``AppModule`` or the interface file) for the defined config interfaces:
+Create an ``InjectionToken`` (e.g. in the ``AppModule`` or the interface file) for the defined config interfaces:
 
 ```typescript
 export const APP_CONFIG = new InjectionToken<AppConfig>('AppConfig');
