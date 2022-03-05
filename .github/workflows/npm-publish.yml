@@ -30,7 +30,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: cpx README.md projects/ngx-json-config
+      - run: cp README.md projects/ngx-json-config
       - run: npm run build ngx-json-config --if-present
       - run: npm publish --folder ./dist/ngx-json-config
         env:
