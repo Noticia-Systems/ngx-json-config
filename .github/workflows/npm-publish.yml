@@ -32,6 +32,6 @@ jobs:
       - run: npm ci
       - run: cp README.md projects/ngx-json-config
       - run: npm run build ngx-json-config --if-present
-      - run: npm publish --folder ./dist/ngx-json-config
+      - run: npm publish --folder ./dist/ngx-json-config --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
