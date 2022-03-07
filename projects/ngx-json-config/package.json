@@ -1,6 +1,6 @@
 {
   "name": "@noticia-systems/ngx-json-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Noticia Systems <info@noticia.systems> (https://noticia.systems)",
   "description": "Angular Json Config",
@@ -20,8 +20,8 @@
     "url": "https://github.com/Noticia-Systems/ngx-json-config/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^13.1.0",
-    "@angular/core": "^13.1.0"
+    "@angular/common": "^13.2.5",
+    "@angular/core": "^13.2.5"
   },
   "dependencies": {
     "tslib": "^2.3.0"
