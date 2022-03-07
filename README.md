@@ -4,7 +4,7 @@ ngx-json-config allows for loading of json config files on Angular startup for d
 
 ## Installation
 
-``npm install @noticiasystems/ngx-json-config``
+``npm install @noticia-systems/ngx-json-config``
 
 ## Usage
 
