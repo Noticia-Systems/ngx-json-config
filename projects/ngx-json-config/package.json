@@ -1,6 +1,6 @@
 {
   "name": "@noticia-systems/ngx-json-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Noticia Systems <info@noticia.systems> (https://noticia.systems)",
   "description": "Angular Json Config",
